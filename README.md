@@ -21,7 +21,7 @@ You must then restart the container.
 username: sys (Role drop down set to SYSDBA)
 password: <YourIntendedPassword>
 ```
-![Alt](https://github.com/Hamberfim/docker-oracle-xe-sql-developer/blob/main/01_sysLogin.png "SYS Login Screen Shot")
+![Alt](https://github.com/Hamberfim/docker-oracle-xe/blob/main/01_sysLogin.png "SYS Login Screen Shot")
 
 3.Then run this SQL to create a user replacing 'username'/'password' (I'm attempting to utilizes the least amount of privileges) (attached pict 02):
 ```
@@ -31,16 +31,16 @@ GRANT CREATE TABLE, CREATE SEQUENCE TO c##<username>;
 GRANT CREATE VIEW TO c##<username>;
 ALTER USER c##<username> QUOTA UNLIMITED ON USERS;
 ```
-![Alt](https://github.com/Hamberfim/docker-oracle-xe-sql-developer/blob/main/02_userScript.png "new user script Screen Shot")
+![Alt](https://github.com/Hamberfim/docker-oracle-xe/blob/main/02_userScript.png "new user script Screen Shot")
 
 4.Disconnect and create a connection logging in under the new user with all the default settings (attached pict 03):
 ```
 username: c##<username>
 password: <password>
 ```
-![Alt](https://github.com/Hamberfim/docker-oracle-xe-sql-developer/blob/main/03_userLogin.png "new user connection Screen Shot")
+![Alt](https://github.com/Hamberfim/docker-oracle-xe/blob/main/03_userLogin.png "new user connection Screen Shot")
 
 From this new user account, you can run the scripts from the previous book or the ones for this class and not have to navigate all the installed oracle tables (attached pict 04). If it gets messed up too bad to drop and re-run scripts you can delete the container and start over.
-![Alt](https://github.com/Hamberfim/docker-oracle-xe-sql-developer/blob/main/04_userRunningScript.png "query under new user Screen Shot")
+![Alt](https://github.com/Hamberfim/docker-oracle-xe/blob/main/04_userRunningScript.png "query under new user Screen Shot")
 
 ### When not in use, shut the docker container down.
